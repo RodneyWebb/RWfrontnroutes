@@ -1,22 +1,13 @@
-fetch ("/home")
-.then((response) => {
-    return response.json()
-})
-.then((json) => {
-    goHome(json)
-})
-.catch((error) => {
-    console.log(error)
-})
+goHome()
 
-function goHome(json) {
+function goHome() {
 
     const homeContainer = document.getElementById("home-container")
     homeContainer.innerHTML = ""
 
-    json.forEach((home) => {
-        const homeName = home.name
-        const homeImage = home.image
+    const homeName = "YOUth Unite"
+        const homeImage = "https://previews.123rf.com/images/topvectors/topvectors1907/topvectors190700803/127135889-happy-young-men-and-women-standing-together-diverse-multiracial-group-of-people-social-diversity.jpg"
+
 
         let homeDiv = document.createElement("div")
         let homeNameTag = document.createElement("h1")
@@ -26,6 +17,9 @@ function goHome(json) {
         let password = document.createElement("input")
         let loginButton = document.createElement("button")
         let registerButton = document.createElement("button")
+
+        email.id = "email"
+        password.id = "password"
 
         homeDiv.appendChild(homeNameTag)
         homeDiv.appendChild(aboutButton)
@@ -45,9 +39,33 @@ function goHome(json) {
         password.placeholder = "password"
         loginButton.innerText = "Login"
         registerButton.innerText = "Register"
-        aboutButton.onclick = aboutApp
-        loginButton.onclick = displayForum
+        loginButton.onclick = login
 
         homeContainer.appendChild(homeDiv)
+    }
+
+
+function login() {
+    let email = document.getElementById("email").value
+    let password = document.getElementById("password").value
+
+    let body = {
+        "email": email,
+        "password": password
+    }
+
+    fetch("http://localhost:3000/login", {
+        headers: {"Content-Type": "Application-Json"},
+        method: "POST",
+        body: body
+    })
+    .then(response => {
+        return response.json()
+        
+    })
+    .then(json => {
+        console.log(json)
+        document.cookie = json.token
+        window.location.href = '/login'
     })
 }

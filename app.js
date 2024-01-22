@@ -2,6 +2,9 @@ const express = require("express")
 const path = require('path')
 const queries = require('./queries')
 const app = express()
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.json())
 
 app.use(express.static(path.join(__dirname, '/public')))
 
@@ -45,7 +48,7 @@ let about = [
         "name": "What is YOUth Unite?",
         "image": "https://previews.123rf.com/images/topvectors/topvectors1907/topvectors190700803/127135889-happy-young-men-and-women-standing-together-diverse-multiracial-group-of-people-social-diversity.jpg",
         "why": "YOUth United was created to give young people a digital platform that focuses on Communication, Networking and Peer-to-Peer Mentorship. Teens and young adults are invited to engage with the forum by viewing posts from peers, as well as make a post of their own. Each post is unique to the person creating it, with a goal of bringing about a more unififed group of YOUth that embraces what one another has to offer for collective growth.",
-        "color": "The blue background represents Unity - this color also represents  In West and Southern African cultures, blue is a vital color that represents love, harmony, and togetherness"
+        "color": "The purpose of 'YOUth United' is to create and promote Unity among young people. Unity can also be associated with the color blue, so in connection the blue background throughout this App's presentation represents Unity! Blue can also represent Tranquility, Integrity, Serenity, Reflection, Wisdom and Dependability. In West and Southern African cultures, blue is a vital color that represents LOVE, Harmony, and Togetherness."
     }
 ]
 
@@ -54,22 +57,28 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/html/homeindex.html'))
 })
 
+//Route to Login into 'YOUth United' App
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/html/logindex.html'))
 })
 
+//Route to Access 'Register' Page
 app.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/html/registerindex.html'))
 })
 
+//Route to View 'About' Page
 app.get('/about', (req, res) => [
     res.sendFile(path.join(__dirname, '/public/html/aboutindex.html'))
 ])
 
-//Route to display ALL Forum Posts
+//Route to login and display ALL Forum Posts
 app.get("/forumposts", (req, res) => {
     res.send(forumPosts)
 })
+
+app.post('/login', queries.login) 
+app.post('/register', queries.newRegister)
 
 app.listen(3000)
 console.log("All Aboard the Running Express!")

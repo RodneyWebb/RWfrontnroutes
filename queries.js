@@ -1,4 +1,5 @@
 const Pool = require('pg').Pool
+const tokenmanager = require('./public/tokenmanager.js')
 
 const pool = new Pool({
     user: 'rwebb14',
@@ -17,7 +18,7 @@ async function newRegister(req, res) {
         if(error) {
             throw error
         }
-        res.status(201).send('User added to YOUth Unite Database. YOU can now access the login page!')
+        res.status(200).send('User added to YOUth Unite Database. YOU can now access the login page!')
     })
 }
 
@@ -29,7 +30,7 @@ async function login(req, res) {
         if(error) {
             throw error
         }
-        res.status(200).send('Welcome!')
+        res.status(200).json({"token": tokenmanager.generateAccessToken(0)})
     })
 }
 

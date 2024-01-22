@@ -1,22 +1,11 @@
-fetch ("/home")
-.then((response) => {
-    return response.json()
-})
-.then((json) => {
-    newRegister(json)
-})
-.catch((error) => {
-    console.log(error)
-})
-
-function newRegister(json) {
+function newRegister() {
 
     const registerContainer = document.getElementById("register-container")
     registerContainer.innerHTML = ""
-
-    json.forEach((home) => {
-        const homeName = home.name
-        const homeImage = home.image
+    //Change Homename to website name
+    //Change homeimage to image link or something
+        const homeName = "YOUth Unite"
+        const homeImage = "https://previews.123rf.com/images/topvectors/topvectors1907/topvectors190700803/127135889-happy-young-men-and-women-standing-together-diverse-multiracial-group-of-people-social-diversity.jpg"
 
         let registerDiv = document.createElement("div")
         let registerNameTag = document.createElement("h1")
@@ -26,8 +15,12 @@ function newRegister(json) {
         let password = document.createElement("input")
         let registerButton = document.createElement("button")
 
+        username.id = "username"
+        email.id = 'email'
+        password.id = 'password'
+
         registerDiv.appendChild(registerNameTag)
-        registerDiv.appendChild(homeImg)
+        registerDiv.appendChild(registerImg)
         registerDiv.appendChild(username)
         registerDiv.appendChild(email)
         registerDiv.appendChild(password)
@@ -42,7 +35,35 @@ function newRegister(json) {
         email.placeholder = "email"
         password.placeholder = "password"
         registerButton.innerText = "Register"
+        registerButton.onclick = register
 
         registerContainer.appendChild(registerDiv)
+    }
+
+function register() {
+    const username = document.getElementById('username').value
+    const email = document.getElementById('email').value
+    const password = document.getElementById('password').value
+    
+    const body = {
+        "email": email,
+        "username": username,
+        "password": password
+    }
+
+    fetch("http://localhost:3000/register", {
+        headers: {"Content-Type": "Application-Json"},
+        method: "POST",
+        body: JSON.stringify(body)
+    })
+    .then(response => {
+        if(response.status === 200) {
+            alert("Account created please login to continue")
+            window.location.href = "/"
+        } else {
+            alert("Something went wrong please try again")
+        }
     })
 }
+
+newRegister()
