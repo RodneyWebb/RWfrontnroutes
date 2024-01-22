@@ -1,0 +1,33 @@
+body {
+    background-color: slateblue;
+}
+
+.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 100vh;
+}
+
+.register-image {
+    height: 20rem;
+    width: 30rem;
+    padding-top: 10px;
+}
+
+.forum {
+    display: flex;
+    flex-direction: row;
+}
+
+.forum-image {
+    height: 100px;
+    width: 100px;
+}
+
+.forum-topic {
+    height: 20px;
+    width: 75vw;
+}

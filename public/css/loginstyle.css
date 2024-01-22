@@ -1,0 +1,20 @@
+body {
+    background-color: slateblue;
+}
+
+.forum {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding-bottom: 25px;
+}
+
+.forum-image {
+    height: 100px;
+    width: 100px;
+}
+
+.forum-topic {
+    height: 20px;
+    width: 80vw;
+}

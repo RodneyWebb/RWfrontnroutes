@@ -1,0 +1,30 @@
+body {
+    background-color: slateblue;
+}
+
+.about {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding-bottom: 25px;
+}
+
+.about-name {
+    height: 100px;
+    width: 100px;  
+}
+
+.about-image {
+    height: 100px;
+    width: 100px;
+}
+
+.about-why {
+    height: 30px;
+    width: 50vw;
+}
+
+.about-color {
+    height: 30px;
+    width: 50vw;
+}
