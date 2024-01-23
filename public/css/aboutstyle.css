@@ -4,19 +4,21 @@ body {
 
 .about {
     display: flex;
-    flex-direction: row;
-    gap: 10px;
-    padding-bottom: 25px;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
 }
 
 .about-name {
+    display: flex;
     height: 100px;
     width: 100px;  
 }
 
 .about-image {
-    height: 100px;
-    width: 100px;
+    height: 20rem;
+    width: 70%;
+    padding-top: 20px;
 }
 
 .about-why {
@@ -27,4 +29,5 @@ body {
 .about-color {
     height: 30px;
     width: 50vw;
+    padding-top: 10px;
 }

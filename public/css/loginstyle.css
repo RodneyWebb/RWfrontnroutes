@@ -2,19 +2,77 @@ body {
     background-color: slateblue;
 }
 
+#forum-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .forum {
     display: flex;
     flex-direction: row;
-    gap: 10px;
-    padding-bottom: 25px;
+    /* align-items: center; */
+    justify-content: flex-start;
+    /* gap: 5px;*/
+    padding: 1rem 1rem 1rem 1rem;
+    color: pink;
 }
+
+/* .forum-title {
+    align-items: center;
+} */
 
 .forum-image {
     height: 100px;
     width: 100px;
+    padding-right: 5px;
+}
+
+.text-section {
+    display: block;
+    flex-direction: column;
+    /* align-content: space-evenly; */
+    justify-content: space-around;
+}
+
+.words-section {
+    
+}
+
+.forum-name {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    /* height: 5rem;
+    width: 5rem; */
 }
 
 .forum-topic {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: flex-end; */
     height: 20px;
     width: 80vw;
+    margin: 0;
+    padding-bottom: 1rem;
+}
+
+.forum-response {
+    height: 50px;
+    width: 100%;
+    /* margin-top: 15px; */
+    gap: 20px;
+    display: block;
+    margin-top: 20px;
+}
+
+.quote-section {
+    display: flex;
+    justify-content: center;
+}
+
+#quote-btn {
+    height: 50px;
+    width: 100px;
+    font-size: large;
+    /* margin: 0 auto; */
 }

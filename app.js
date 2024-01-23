@@ -4,6 +4,15 @@ const queries = require('./queries')
 const app = express()
 const bodyParser = require('body-parser')
 
+const cors = require("cors");
+const corsOptions = {
+   origin:'*',
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
+ 
+app.use(cors(corsOptions))
+
 app.use(bodyParser.json())
 
 app.use(express.static(path.join(__dirname, '/public')))
@@ -39,16 +48,16 @@ let forumPosts = [
 let home = [
     {
         "name": "YOUth Unite",
-        "image": "https://previews.123rf.com/images/topvectors/topvectors1907/topvectors190700803/127135889-happy-young-men-and-women-standing-together-diverse-multiracial-group-of-people-social-diversity.jpg"
+        "image": "https://images.unsplash.com/photo-1591197172062-c718f82aba20?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
 ]
 
 let about = [
     {
         "name": "What is YOUth Unite?",
-        "image": "https://previews.123rf.com/images/topvectors/topvectors1907/topvectors190700803/127135889-happy-young-men-and-women-standing-together-diverse-multiracial-group-of-people-social-diversity.jpg",
         "why": "YOUth United was created to give young people a digital platform that focuses on Communication, Networking and Peer-to-Peer Mentorship. Teens and young adults are invited to engage with the forum by viewing posts from peers, as well as make a post of their own. Each post is unique to the person creating it, with a goal of bringing about a more unififed group of YOUth that embraces what one another has to offer for collective growth.",
-        "color": "The purpose of 'YOUth United' is to create and promote Unity among young people. Unity can also be associated with the color blue, so in connection the blue background throughout this App's presentation represents Unity! Blue can also represent Tranquility, Integrity, Serenity, Reflection, Wisdom and Dependability. In West and Southern African cultures, blue is a vital color that represents LOVE, Harmony, and Togetherness."
+        "color": "The purpose of 'YOUth United' is to create and promote Unity among young people. Unity can also be associated with the color blue, so in connection the blue background throughout this App's presentation represents Unity! Blue can also represent Tranquility, Integrity, Serenity, Reflection, Wisdom and Dependability. In West and Southern African cultures, blue is a vital color that represents LOVE, Harmony, and Togetherness.",
+        "image": "https://images.unsplash.com/photo-1468421870903-4df1664ac249?q=80&w=3052&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
 ]
 
@@ -77,8 +86,19 @@ app.get("/forumposts", (req, res) => {
     res.send(forumPosts)
 })
 
+app.get("/aboutinfo", (req, res) => {
+    res.send(about)
+})
+
+
 app.post('/login', queries.login) 
 app.post('/register', queries.newRegister)
+
+app.all('/', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next()
+  })
 
 app.listen(3000)
 console.log("All Aboard the Running Express!")

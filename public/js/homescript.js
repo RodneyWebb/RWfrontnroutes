@@ -6,7 +6,7 @@ function goHome() {
     homeContainer.innerHTML = ""
 
     const homeName = "YOUth Unite"
-        const homeImage = "https://previews.123rf.com/images/topvectors/topvectors1907/topvectors190700803/127135889-happy-young-men-and-women-standing-together-diverse-multiracial-group-of-people-social-diversity.jpg"
+    const homeImage = "https://images.unsplash.com/photo-1584592487914-a29c64f25887?q=80&w=3269&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 
 
         let homeDiv = document.createElement("div")
@@ -34,11 +34,13 @@ function goHome() {
 
         homeNameTag.innerText = homeName
         aboutButton.innerText = "About"
+        aboutButton.onclick = about
         homeImg.src = homeImage
         email.placeholder = "email"
         password.placeholder = "password"
         loginButton.innerText = "Login"
         registerButton.innerText = "Register"
+        registerButton.onclick = registerMe
         loginButton.onclick = login
 
         homeContainer.appendChild(homeDiv)
@@ -68,4 +70,12 @@ function login() {
         document.cookie = json.token
         window.location.href = '/login'
     })
+}
+
+function about() {
+    window.location.href = '/about'
+}
+
+function registerMe() {
+    window.location.href = '/register'
 }

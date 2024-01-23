@@ -11,6 +11,44 @@
 
     </div>
 
+    <div class="quote-section">
+        <button id="quote-btn">Get Inspired!</button>
+    </div>
+
+    <div id="quote-container">
+        <p id="quote-text"></p>
+        <p id="author"></p>
+    </div>
+
     <script src="/js/loginscript.js"></script>
+    <script>
+        (function () {
+          async function getQuote() {
+            const url = "https://type.fit/api/quotes";
+            const options = {
+              method: "GET",
+            };
+            try {
+              const response = await fetch(url, options);
+              const quotes = await response.json();
+              const randomIndex = Math.floor(Math.random() * quotes.length);
+              const randomQuote = quotes[randomIndex];
+              // Display quote and author in HTML
+              document.getElementById("quote-text").textContent =
+                randomQuote.text;
+              const cleanAuthorName = randomQuote.author.split(",")
+              document.getElementById(
+                "author"
+              ).textContent = `- ${cleanAuthorName[0]}`;
+              console.log(randomQuote);
+            } catch (error) {
+              console.error(error);
+            }
+          }
+          document
+            .getElementById("quote-btn")
+            .addEventListener("click", getQuote, true);
+        })();
+    </script>
 </body>
 </html>

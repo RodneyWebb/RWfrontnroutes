@@ -12,22 +12,7 @@ body {
 }
 
 .register-image {
-    height: 20rem;
-    width: 30rem;
+    height: 30rem;
+    width: 50rem;
     padding-top: 10px;
-}
-
-.forum {
-    display: flex;
-    flex-direction: row;
-}
-
-.forum-image {
-    height: 100px;
-    width: 100px;
-}
-
-.forum-topic {
-    height: 20px;
-    width: 75vw;
 }

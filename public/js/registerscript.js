@@ -5,7 +5,7 @@ function newRegister() {
     //Change Homename to website name
     //Change homeimage to image link or something
         const homeName = "YOUth Unite"
-        const homeImage = "https://previews.123rf.com/images/topvectors/topvectors1907/topvectors190700803/127135889-happy-young-men-and-women-standing-together-diverse-multiracial-group-of-people-social-diversity.jpg"
+        const homeImage = "https://images.unsplash.com/photo-1591197172062-c718f82aba20?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 
         let registerDiv = document.createElement("div")
         let registerNameTag = document.createElement("h1")
@@ -58,10 +58,10 @@ function register() {
     })
     .then(response => {
         if(response.status === 200) {
-            alert("Account created please login to continue")
+            alert("Account created! Please log in to continue.")
             window.location.href = "/"
         } else {
-            alert("Something went wrong please try again")
+            alert("Registration Unsuccussful. Please try again.")
         }
     })
 }
