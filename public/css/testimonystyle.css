@@ -16,17 +16,15 @@ body {
     color: black;
 }
 
-.register {
+#testimony-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    height: 100vh;
 }
 
-.register-image {
-    height: 30rem;
-    width: 50rem;
-    padding-top: 10px;
+.testimony {
+    display: flex;
+    flex-direction: row;
+    padding: 10rem;
+    border: 1px solid black;
+    margin: 1rem;
+    font-style: italic;
 }

@@ -1,5 +1,19 @@
 body {
-    background-color: slateblue;
+    background-color: #5B7C99;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.main-pages {
+    padding: 1rem;
+    text-decoration: none;
+}
+
+.main-pages:visited {
+    color: black;
 }
 
 #forum-container {
@@ -14,7 +28,7 @@ body {
     justify-content: flex-start;
     /* gap: 5px;*/
     padding: 1rem 1rem 1rem 1rem;
-    color: pink;
+    
 }
 
 /* .forum-title {
@@ -32,10 +46,6 @@ body {
     flex-direction: column;
     /* align-content: space-evenly; */
     justify-content: space-around;
-}
-
-.words-section {
-    
 }
 
 .forum-name {
@@ -74,5 +84,14 @@ body {
     height: 50px;
     width: 100px;
     font-size: large;
-    /* margin: 0 auto; */
+}
+
+#quote-text {
+    font-family: fantasy;
+    font-size: x-large;
+    margin: 0;
+}
+
+#author {
+    margin: 0;
 }

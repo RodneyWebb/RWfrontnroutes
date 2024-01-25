@@ -1,5 +1,19 @@
 body {
-    background-color: slateblue;
+    background-color: #5B7C99;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.main-pages {
+    padding: 1rem;
+    text-decoration: none;
+}
+
+.main-pages:visited {
+    color: black;
 }
 
 .about {
@@ -10,24 +24,25 @@ body {
 }
 
 .about-name {
-    display: flex;
-    height: 100px;
-    width: 100px;  
+    color: gold; 
 }
 
 .about-image {
     height: 20rem;
     width: 70%;
-    padding-top: 20px;
+    /* padding-top: 20px; */
 }
 
 .about-why {
-    height: 30px;
+    /* height: 30px; */
     width: 50vw;
+    line-height: 150%;
+    margin: 0;
 }
 
 .about-color {
-    height: 30px;
+    /* height: 30px; */
     width: 50vw;
-    padding-top: 10px;
+    line-height: 150%;
+    margin: 0;
 }

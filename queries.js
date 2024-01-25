@@ -31,7 +31,7 @@ async function login(req, res) {
             throw error
         }
         res.status(200).json({"token": tokenmanager.generateAccessToken(0)})
-        res.status(200).send('Welcome!')
+        // res.status(200).send("Welcome!")
     })
 }
 

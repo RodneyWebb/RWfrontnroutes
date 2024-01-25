@@ -90,6 +90,9 @@ app.get("/aboutinfo", (req, res) => {
     res.send(about)
 })
 
+app.get('/testimonies', (req, res) => [
+    res.sendFile(path.join(__dirname, '/public/html/testimonyindex.html'))
+])
 
 app.post('/login', queries.login) 
 app.post('/register', queries.newRegister)

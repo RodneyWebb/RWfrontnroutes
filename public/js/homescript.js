@@ -31,13 +31,15 @@ function goHome() {
 
         homeDiv.classList.add("home")
         homeImg.classList.add("home-image")
+        aboutButton.classList.add("about-button")
 
         homeNameTag.innerText = homeName
-        aboutButton.innerText = "About"
+        aboutButton.innerText = "Why should YOUth join?"
         aboutButton.onclick = about
         homeImg.src = homeImage
         email.placeholder = "email"
         password.placeholder = "password"
+        password.type = "password"
         loginButton.innerText = "Login"
         registerButton.innerText = "Register"
         registerButton.onclick = registerMe
